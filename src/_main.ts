@@ -4,6 +4,7 @@ import { TimeStamp, Calculator } from './Calculator'
 
 ////////////////////////////////////////////////////////////
 
+const NUMBER_OF_CARDS_IN_A_DECK = 4 * ( 10 + 3 );
 const NUMBER_OF_PLAYERS = 4;
 const START_LITTLE_BLIND = 5;
 
@@ -17,6 +18,7 @@ let line = game.makeTheLine();
 
 ////////////////////////////////////////////////////////////
 
+printConfig();
 printPlayersHands();
 printLine();
 printStats();
@@ -32,6 +34,14 @@ function createPlayers( number : number ) : Player[]
 		players.push( new Player() );
 
 	return players;
+}
+
+function printConfig()
+{
+	console.log( '\n-----CONFIG-----\n' );
+	console.log( `${ NUMBER_OF_PLAYERS } players` )
+	console.log( `${ game.deck.cards.length } cards remaining` );
+	console.log( `${ NUMBER_OF_CARDS_IN_A_DECK - game.deck.cards.length } cards used` );
 }
 
 function printPlayersHands()
@@ -55,14 +65,16 @@ function printLine()
 
 function printStats()
 {
-	console.log( '\n-----STATS-----\n' );
+	console.log( '\n-----STATS-----' );
 
 	players.forEach( ( player, id ) =>
 	{
-		console.log( `Player ${ id }\n` );
+		console.log( `\n---Player ${ id } :` );
 
-		timestamps.forEach( timestamp =>
+		timestamps.forEach( ( timestamp, id ) =>
 		{
+			console.log( `\n-Timestamp '${ timestamps[ id ] as string }' :` );
+
 			let calculator = new Calculator( getHands(), line, timestamp, id );
 
 			calculator.printAllStats();

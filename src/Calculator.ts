@@ -3,21 +3,36 @@ import { Card } from './Card';
 export class Calculator
 {
 	hands : any[];
-	line : Card[];
+	line ?: Card[];
 	timestamp : TimeStamp;
 	target : number;
 
 	constructor( hands : any[], line : Card[], timestamp : TimeStamp , target : number )
 	{
 		this.hands = hands;
-		this.line = line;
 		this.timestamp = timestamp;
 		this.target = target;
+
+		switch( timestamp )
+		{
+			case TimeStamp.NONE :
+					this.line = [];
+				break;
+			case TimeStamp.FLOP :
+					this.line = [ line[ 0 ], line[ 1 ], line[ 2 ] ];
+				break;
+			case TimeStamp.TURN :
+					this.line = [ line[ 0 ], line[ 1 ], line[ 2 ], line[ 4 ] ];
+				break;
+			case TimeStamp.REVERSE :
+					this.line = line;
+				break;
+		}
 	}
 
 	printAllStats()
 	{
-		
+		console.log( '\nSimple Pair : ', );
 	}
 
 	highCard()
@@ -27,7 +42,7 @@ export class Calculator
 
 	simplePair()
 	{
-
+		
 	}
 
 	twoPair()
