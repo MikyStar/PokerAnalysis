@@ -16,6 +16,8 @@ game.distribute();
 
 players.forEach( ( player, id ) => console.log(`hand ${ id }`, player.hand ) )
 
+console.log('\nline', game.makeTheLine() );
+
 ////////////////////////////////////////////////////////////
 
 

@@ -10,7 +10,6 @@ export class Game
 	littleBlind : number;
 	//playerTurn : number; // Position in the players array
 
-
 	constructor( players : Player[], littleBlind : number )
 	{
 		this.players = players;
@@ -18,7 +17,7 @@ export class Game
 		this.deck = new Deck();
 	}
 
-	raiseTheBlind( newLittleBlind : number )
+	riseTheBlind( newLittleBlind : number )
 	{
 
 	}
@@ -30,8 +29,6 @@ export class Game
 			player.hand.push( this.pickCard() );
 			player.hand.push( this.pickCard() );
 		})
-
-
 	}
 
 	pickCard() : Card
@@ -49,5 +46,20 @@ export class Game
 		return card;
 	}
 
+	makeTheLine() : Card[]
+	{
+		let line = [];
 
+		line.push( this.pickCard() );
+		line.push( this.pickCard() );
+		line.push( this.pickCard() );
+
+		this.deck.cards.pop();
+		line.push( this.pickCard() );
+
+		this.deck.cards.pop();
+		line.push( this.pickCard() );
+
+		return line;
+	}
 }
