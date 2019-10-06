@@ -14,18 +14,18 @@ export class Card
 
 export enum Color
 {
-	CUBS,
-	DIAMOND,
-	HEART,
-	SPIKE
+	CUBS = 'cubs',
+	DIAMOND = 'diamond',
+	HEART = 'heart',
+	SPIKE = 'spike'
 }
 
 ////////////////////////////////////////////////////////////////////
 
 export enum Face
 {
-	JACK,
-	QUEEN,
-	KING,
-	AS
+	JACK = 'jack',
+	QUEEN = 'queen',
+	KING = 'king',
+	AS = 'as'
 }
