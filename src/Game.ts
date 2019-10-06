@@ -15,6 +15,8 @@ export class Game
 		this.players = players;
 		this.littleBlind = littleBlind;
 		this.deck = new Deck();
+
+		this.distribute();
 	}
 
 	riseTheBlind( newLittleBlind : number )

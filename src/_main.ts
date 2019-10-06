@@ -12,11 +12,10 @@ let players = createPlayers( NUMBER_OF_PLAYERS );
 
 let game = new Game( players, START_LITTLE_BLIND );
 
-game.distribute();
+////////////////////////////////////////////////////////////
 
-players.forEach( ( player, id ) => console.log(`hand ${ id }`, player.hand ) )
-
-console.log('\nline', game.makeTheLine() );
+printPlayersHands();
+printLine();
 
 ////////////////////////////////////////////////////////////
 
@@ -29,4 +28,25 @@ function createPlayers( number : number ) : Player[]
 		players.push( new Player() );
 
 	return players;
+}
+
+function printPlayersHands()
+{
+	console.log( '\n-----HANDS-----' );
+
+	players.forEach( ( player, id ) =>
+	{
+		console.log( `Player ${ id } : `, player.hand[ 0 ], player.hand[ 1 ] );
+	})
+}
+
+function printLine()
+{
+	console.log( '\n-----LINE-----' );
+
+	let line = game.makeTheLine();
+
+	console.log( 'FLOP : ', line[ 0 ], line[ 1 ], line [ 2 ] );
+	console.log( 'TURN : ', line[ 3 ] );
+	console.log( 'REVERSE : ', line[ 4 ] );
 }
