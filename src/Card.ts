@@ -1,9 +1,9 @@
 export class Card
 {
-	color : Color;
-	id : number | Face;
+	color ?: Color;
+	id ?: number | Face;
 
-	constructor( color : Color, id : number | Face )
+	constructor( color ?: Color, id ?: number | Face )
 	{
 		this.color = color;
 		this.id = id;
