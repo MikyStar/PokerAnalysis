@@ -1,1 +1,5 @@
-PokerAnalysis
+# PokerAnalysis
+
+```sh
+npm run dev
+```
