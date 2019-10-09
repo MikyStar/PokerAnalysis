@@ -169,6 +169,9 @@ export class Watcher
 			return [];
 	}
 
+	/**
+	 * @returns An object where the key is the suit and the value is the quantity
+	 */
 	getNbOfEachSuit()
 	{
 		let counters : any = {};
@@ -189,11 +192,37 @@ export class Watcher
 	getFlush() : Card[] | undefined
 	{
 		const CARDS_NEEDED_IN_A_ROW = 5;
+		let flush : Card[] = [];
+		let largestQtty = 0;
 
 		let counters = this.getNbOfEachSuit();
-		console.log('counters' );
-		console.table(counters)
 
-		return undefined;
+		Object.keys( counters ).forEach( suit =>
+		{
+			if( counters[ suit ] > largestQtty )
+			{
+				let allOfThem = this.cards.filter( card => card.color === suit );
+				flush = allOfThem;
+				largestQtty = counters[ suit ];
+			}
+		})
+
+		// Checking and resizing to 5 elements
+		/*if( straight.length >= CARDS_NEEDED_IN_A_ROW )
+		{
+			if( straight.length === CARDS_NEEDED_IN_A_ROW )
+				return straight;
+			else
+			{
+				while( straight.length !== CARDS_NEEDED_IN_A_ROW )
+					straight.shift();
+
+				return straight;
+			}
+		}
+		else
+			return [];*/
+
+		return flush;
 	}
 }

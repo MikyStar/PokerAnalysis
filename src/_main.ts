@@ -28,7 +28,7 @@ let cards =
 [
 	new Card( Color.CUBS, Face.QUEEN ),
 	new Card( Color.HEART, 9 ),
-	new Card( Color.HEART, 8 ),
+	new Card( Color.DIAMOND, 8 ),
 	new Card( Color.CUBS, 10 ),
 	new Card( Color.SPADES, Face.KING ),
 
