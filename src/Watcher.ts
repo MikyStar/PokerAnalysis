@@ -40,7 +40,7 @@ export class Watcher
 		return pairs;
 	}
 
-	bestPair() : Card[]
+	getBestPair() : Card[]
 	{
 		let bestPair : Card[] = [];
 		let bestValue = 0;
@@ -56,5 +56,22 @@ export class Watcher
 		});
 
 		return bestPair;
+	}
+
+	getHighCard() : Card
+	{
+		let best = 0;
+		let highCard : Card = new Card();
+
+		this.cards.forEach( card =>
+		{
+			if( <number>card.value > best )
+			{
+				best = <number>card.value;
+				highCard = card;
+			}
+		});
+
+		return highCard;
 	}
 }

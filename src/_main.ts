@@ -28,7 +28,7 @@ let cards =
 [
 	new Card( Color.CUBS, Face.QUEEN ),
 	new Card( Color.HEART, 3 ),
-	new Card( Color.HEART, Face.AS ),
+	new Card( Color.HEART, Face.QUEEN ),
 	new Card( Color.CUBS, 10 ),
 	new Card( Color.SPADES, Face.AS ),
 
@@ -38,8 +38,9 @@ let cards =
 let watcher = new Watcher( cards );
 
 console.log('\ncards', cards);
-console.log('\nbest pairs', watcher.bestPair() );
+console.log('\nbest pairs', watcher.getBestPair() );
 console.log('\nall pairs', watcher.getAllPairs() );
+console.log('\nhigh card', watcher.getHighCard() );
 
 ////////////////////////////////////////////////////////////
 
