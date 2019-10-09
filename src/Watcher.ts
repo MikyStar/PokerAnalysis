@@ -119,12 +119,56 @@ export class Watcher
 		return bestCombination;
 	}
 
-	private removeFromArray( array : any[], element : any )
+	/**
+	 * @summary It sort the cards by their value and check if 5 cards in a row follows each others
+	 */
+	getStraight() : Card[] | undefined
 	{
-		for( let i = 0; i < array.length; i++ )
+		const CARDS_NEEDED_IN_A_ROW = 5;
+		const straight : Card[] = [];
+
+		let sortedCards = this.cards.sort( ( a, b ) =>
 		{
-			if ( array[ i ] === element )
-				array.splice(i, 1);
+			if ( <number>a.value < <number>b.value )
+				return -1;
+			if ( <number>a.value > <number>b.value )
+				return 1;
+
+			return 0;
+		});
+		let sortedValues = Array.from( sortedCards, card => card.value );
+
+		console.table(sortedCards) //TODO
+
+		for( let i = 0; i < ( sortedCards.length - 1 ); i++ )
+		{
+			let current = <number>sortedValues[ i ];
+			let next = <number>sortedValues[ i + 1 ];
+
+			if( ( current + 1 ) === next )
+			{
+				if( straight.length === 0 )
+					straight.push( sortedCards[ i ] );
+
+				straight.push( sortedCards[ i + 1 ] );
+			}
 		}
+
+		if( straight.length >= CARDS_NEEDED_IN_A_ROW )
+		{
+			if( straight.length === CARDS_NEEDED_IN_A_ROW )
+				return straight;
+			else
+			{
+				while( straight.length !== CARDS_NEEDED_IN_A_ROW )
+				{
+					straight.shift();
+				}
+
+				return straight;
+			}
+		}
+		else
+			return [];
 	}
 }

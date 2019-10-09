@@ -27,20 +27,20 @@ let line = game.makeTheLine();
 let cards =
 [
 	new Card( Color.CUBS, Face.QUEEN ),
-	new Card( Color.HEART, 5 ),
-	new Card( Color.HEART, Face.AS ),
-	new Card( Color.CUBS, 5 ),
-	new Card( Color.SPADES, Face.AS ),
+	new Card( Color.HEART, 9 ),
+	new Card( Color.HEART, 8 ),
+	new Card( Color.CUBS, 10 ),
+	new Card( Color.SPADES, Face.KING ),
 
 	new Card( Color.DIAMOND, Face.AS ),
-	new Card( Color.DIAMOND, 5 ),
+	new Card( Color.DIAMOND, Face.JACK ),
 ]
 let watcher = new Watcher( cards );
 
 console.table( cards );
 
-console.log('\nall 3\n', watcher.getAll3ofAKind() );
-console.log('\nbest 3\n', watcher.getBest3ofAKind() );
+console.log('\n straight \n', watcher.getStraight() );
+
 
 ////////////////////////////////////////////////////////////
 
