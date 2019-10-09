@@ -1,9 +1,9 @@
-import { Card } from './Card';
+import { Card, Color } from './Card';
 
 /////////////////////////////////////////////////////////
 
 /**
- * @description A Watcher takes five cards and look for the better combination
+ * @description A Watcher takes max seven cards and provides functions to find the best combinations
  */
 export class Watcher
 {
@@ -138,8 +138,6 @@ export class Watcher
 		});
 		let sortedValues = Array.from( sortedCards, card => card.value );
 
-		console.table(sortedCards) //TODO
-
 		for( let i = 0; i < ( sortedCards.length - 1 ); i++ )
 		{
 			let current = <number>sortedValues[ i ];
@@ -154,6 +152,7 @@ export class Watcher
 			}
 		}
 
+		// Checking and resizing to 5 elements
 		if( straight.length >= CARDS_NEEDED_IN_A_ROW )
 		{
 			if( straight.length === CARDS_NEEDED_IN_A_ROW )
@@ -161,14 +160,40 @@ export class Watcher
 			else
 			{
 				while( straight.length !== CARDS_NEEDED_IN_A_ROW )
-				{
 					straight.shift();
-				}
 
 				return straight;
 			}
 		}
 		else
 			return [];
+	}
+
+	getNbOfEachSuit()
+	{
+		let counters : any = {};
+
+		this.cards.forEach( card =>
+		{
+			if( counters === {} )
+				counters = { [ <string>card.color ] : 1 };
+			else if( counters.hasOwnProperty( `${ <Color>card.color }` ) )
+				counters[ `${ <Color>card.color }` ]++;
+			else
+				counters[ `${ <Color>card.color }` ] = 1;
+		});
+
+		return counters;
+	}
+
+	getFlush() : Card[] | undefined
+	{
+		const CARDS_NEEDED_IN_A_ROW = 5;
+
+		let counters = this.getNbOfEachSuit();
+		console.log('counters' );
+		console.table(counters)
+
+		return undefined;
 	}
 }

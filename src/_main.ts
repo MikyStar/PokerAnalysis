@@ -39,7 +39,7 @@ let watcher = new Watcher( cards );
 
 console.table( cards );
 
-console.log('\n straight \n', watcher.getStraight() );
+console.log('\n flush \n', watcher.getFlush() );
 
 
 ////////////////////////////////////////////////////////////
