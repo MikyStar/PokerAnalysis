@@ -1,6 +1,6 @@
 import { Card, Color } from './Card';
 
-/////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
 
 /**
  * @description A Watcher takes max seven cards and provides functions to find the best combinations
@@ -14,9 +14,28 @@ export class Watcher
 		this.cards = cards;
 	}
 
+	/////////////////////////////////////////////////////////////////////////////////////
+
 	bestCombination()
 	{
 		//TODO
+	}
+
+	getHighCard() : Card
+	{
+		let best = 0;
+		let highCard : Card = new Card();
+
+		this.cards.forEach( card =>
+		{
+			if( <number>card.value > best )
+			{
+				best = <number>card.value;
+				highCard = card;
+			}
+		});
+
+		return highCard;
 	}
 
 	getAllPairs() : Card[][]
@@ -56,23 +75,6 @@ export class Watcher
 		});
 
 		return bestPair;
-	}
-
-	getHighCard() : Card
-	{
-		let best = 0;
-		let highCard : Card = new Card();
-
-		this.cards.forEach( card =>
-		{
-			if( <number>card.value > best )
-			{
-				best = <number>card.value;
-				highCard = card;
-			}
-		});
-
-		return highCard;
 	}
 
 	getAll3ofAKind() : Card[][] | undefined
@@ -145,20 +147,7 @@ export class Watcher
 		}
 
 		// Checking and resizing to 5 elements
-		if( straight.length >= CARDS_NEEDED_IN_A_ROW )
-		{
-			if( straight.length === CARDS_NEEDED_IN_A_ROW )
-				return straight;
-			else
-			{
-				while( straight.length !== CARDS_NEEDED_IN_A_ROW )
-					straight.shift();
-
-				return straight;
-			}
-		}
-		else
-			return [];
+		return this.keepTheFiveBestFromValue( straight );
 	}
 
 	/**
@@ -200,18 +189,10 @@ export class Watcher
 		})
 
 		// Checking and resizing to 5 elements
-		if( flush.length === CARDS_NEEDED_IN_A_ROW )
-			return flush;
-		else if( flush.length > CARDS_NEEDED_IN_A_ROW )
-		{
-			while( flush.length !== CARDS_NEEDED_IN_A_ROW )
-				flush.shift();
-
-			return flush;
-		}
-		else
-			return [];
+		return this.keepTheFiveBestFromValue( flush );
 	}
+
+	/////////////////////////////////////////////////////////////////////////////////////
 
 	private sortCardsByValue( cards : Card[] )
 	{
@@ -224,5 +205,29 @@ export class Watcher
 
 			return 0;
 		});
+	}
+
+	/**
+	 * Sort cards in increasing order and returns only the 5 highest ones (based on their value)
+	 *
+	 * @param cards
+	 */
+	private keepTheFiveBestFromValue( cards : Card[] ) : Card[] | undefined
+	{
+		const CARDS_NEEDED_IN_A_ROW = 5;
+
+		cards = this.sortCardsByValue( cards )
+
+		if( cards.length === CARDS_NEEDED_IN_A_ROW )
+			return cards;
+		else if( cards.length > CARDS_NEEDED_IN_A_ROW )
+		{
+			while( cards.length !== CARDS_NEEDED_IN_A_ROW )
+				cards.shift();
+
+			return cards;
+		}
+		else
+			return [];
 	}
 }

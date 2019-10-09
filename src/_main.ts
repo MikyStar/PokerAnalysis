@@ -27,12 +27,12 @@ let line = game.makeTheLine();
 let cards =
 [
 	new Card( Color.DIAMOND, Face.QUEEN ),
-	new Card( Color.DIAMOND, 9 ),
-	new Card( Color.DIAMOND, 8 ),
-	new Card( Color.DIAMOND, 10 ),
-	new Card( Color.DIAMOND, Face.KING ),
+	new Card( Color.SPADES, 9 ),
+	new Card( Color.SPADES, 5 ),
+	new Card( Color.SPADES, 2 ),
+	new Card( Color.SPADES, Face.KING ),
 
-	new Card( Color.DIAMOND, Face.AS ),
+	new Card( Color.SPADES, 10 ),
 	new Card( Color.DIAMOND, Face.JACK ),
 ]
 let watcher = new Watcher( cards );
@@ -40,6 +40,7 @@ let watcher = new Watcher( cards );
 console.table( cards );
 
 console.log('\n flush \n', watcher.getFlush() );
+console.log('\n\n straight', watcher.getStraight() );
 
 
 ////////////////////////////////////////////////////////////
