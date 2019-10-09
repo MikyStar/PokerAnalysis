@@ -26,7 +26,23 @@ export class Watcher
 		let bestPairValue = 0;
 		let bestPair : Card[] = [];
 
-		pileToCheck.forEach( iMChecking =>
+		for( let i = 0; i < ( pileToCheck.length - 1 ); i++ )
+		{
+			let iMChecking = pileToCheck[ i ];
+
+			for( let j = ( i + 1 ); j < pileToCheck.length; j++ )
+			{
+				if( iMChecking.value === pileToCheck[ j ].value )
+				{
+					bestPairValue = iMChecking.value as number;
+					bestPair = [ iMChecking, pileToCheck[ j ] ]
+				}
+			}
+
+
+		}
+
+		/* pileToCheck.forEach( iMChecking =>
 		{
 			let element = this.cards.find( card => card.value === iMChecking.value );
 
@@ -38,7 +54,7 @@ export class Watcher
 					bestPair = [ iMChecking, element ]
 				}
 			}
-		});
+		}); */
 
 		return bestPair;
 	}

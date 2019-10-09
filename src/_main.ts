@@ -20,23 +20,24 @@ let line = game.makeTheLine();
 
 ////////////////////////////////////////////////////////////
 
-printConfig();
-printPlayersHands();
-printLine();
-printStats();
-
-let watcher = new Watcher(
+// printConfig();
+// printPlayersHands();
+// printLine();
+// printStats();
+let cards =
 [
 	new Card( Color.CUBS, Face.JACK ),
 	new Card( Color.HEART, 3 ),
-	new Card( Color.HEART, 6 ),
+	new Card( Color.HEART, Face.JACK ),
 	new Card( Color.CUBS, 10 ),
-	new Card( Color.SPADES, Face.JACK ),
+	new Card( Color.SPADES, Face.QUEEN ),
 
 	new Card( Color.DIAMOND, Face.QUEEN ),
 	new Card( Color.DIAMOND, 5 ),
-]);
+]
+let watcher = new Watcher( cards );
 
+console.log('\ncards', cards);
 console.log('best paire', watcher.bestPaire() );
 
 ////////////////////////////////////////////////////////////
