@@ -1,6 +1,7 @@
 import { Game } from './Game';
 import { Player } from './Player';
 import { TimeStamp, Calculator } from './Calculator'
+import { Card, Face } from './Card';
 
 ////////////////////////////////////////////////////////////
 
@@ -22,6 +23,9 @@ printConfig();
 printPlayersHands();
 printLine();
 printStats();
+
+let card = new Card( undefined, Face.QUEEN );
+console.log('as', card.value );
 
 ////////////////////////////////////////////////////////////
 

@@ -32,55 +32,15 @@ export class Calculator
 
 	printAllStats()
 	{
-		console.log( '\nSimple Pair : ', );
+		//TODO
 	}
 
-	highCard()
+	getBestCombination()
 	{
 
 	}
 
-	simplePair()
-	{
-		
-	}
-
-	twoPair()
-	{
-
-	}
-
-	threeOfAKind()
-	{
-
-	}
-
-	straight()
-	{
-
-	}
-
-	flush()
-	{
-
-	}
-
-	fullHouse()
-	{
-
-	}
-
-	fourOfAKind()
-	{
-
-	}
-
-	straightFlush()
-	{
-
-	}
-
-	royalFlush()
+	isPaire( effectiveCards : Card[] )
 	{
 
 	}
