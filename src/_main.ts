@@ -40,6 +40,7 @@ let watcher = new Watcher( cards );
 console.table( cards );
 
 console.log('\nall 3\n', watcher.getAll3ofAKind() );
+console.log('\nbest 3\n', watcher.getBest3ofAKind() );
 
 ////////////////////////////////////////////////////////////
 

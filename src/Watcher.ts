@@ -100,9 +100,23 @@ export class Watcher
 		return combinations;
 	}
 
-	getBest3ofAKind()
+	getBest3ofAKind() : Card[]
 	{
+		let bestValue = 0;
+		let bestCombination : Card[] = [];
 
+		( <Card[][]>this.getAll3ofAKind() ).forEach( combination =>
+		{
+			let value = <number>combination[ 0 ].value ;
+
+			if( value > bestValue )
+			{
+				bestValue = value;
+				bestCombination = combination;
+			}
+		});
+
+		return bestCombination;
 	}
 
 	private removeFromArray( array : any[], element : any )
