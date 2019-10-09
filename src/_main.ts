@@ -26,13 +26,13 @@ let line = game.makeTheLine();
 // printStats();
 let cards =
 [
-	new Card( Color.CUBS, Face.JACK ),
+	new Card( Color.CUBS, Face.QUEEN ),
 	new Card( Color.HEART, 3 ),
-	new Card( Color.HEART, Face.JACK ),
+	new Card( Color.HEART, Face.AS ),
 	new Card( Color.CUBS, 10 ),
 	new Card( Color.SPADES, Face.QUEEN ),
 
-	new Card( Color.DIAMOND, Face.QUEEN ),
+	new Card( Color.DIAMOND, Face.AS ),
 	new Card( Color.DIAMOND, 5 ),
 ]
 let watcher = new Watcher( cards );

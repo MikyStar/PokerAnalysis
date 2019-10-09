@@ -19,6 +19,11 @@ export class Watcher
 		//TODO
 	}
 
+	getAllPaires()
+	{
+
+	}
+
 	// TODO make private
 	bestPaire() : Card[]
 	{
@@ -32,29 +37,13 @@ export class Watcher
 
 			for( let j = ( i + 1 ); j < pileToCheck.length; j++ )
 			{
-				if( iMChecking.value === pileToCheck[ j ].value )
+				if( ( iMChecking.value === pileToCheck[ j ].value ) && ( bestPairValue < <number>iMChecking.value ) )
 				{
 					bestPairValue = iMChecking.value as number;
 					bestPair = [ iMChecking, pileToCheck[ j ] ]
 				}
 			}
-
-
 		}
-
-		/* pileToCheck.forEach( iMChecking =>
-		{
-			let element = this.cards.find( card => card.value === iMChecking.value );
-
-			if( element )
-			{
-				if( element.value && ( element.value > bestPairValue ) )
-				{
-					bestPairValue = element.value;
-					bestPair = [ iMChecking, element ]
-				}
-			}
-		}); */
 
 		return bestPair;
 	}
