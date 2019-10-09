@@ -74,4 +74,43 @@ export class Watcher
 
 		return highCard;
 	}
+
+	getAll3ofAKind() : Card[][] | undefined
+	{
+		let pileToCheck = this.cards;
+		let combinations : Card[][] = [];
+
+		for( let i = 0; i < ( pileToCheck.length - 2 ); i++ )
+		{
+			let iMChecking = pileToCheck[ i ];
+
+			for( let j = ( i + 1 ); j < ( pileToCheck.length - 1 ); j++ )
+			{
+				if( iMChecking.value === pileToCheck[ j ].value )
+				{
+					for( let k = ( j + 1 ); k < pileToCheck.length; k++ )
+					{
+						if( iMChecking.value === pileToCheck[ k ].value )
+							combinations.push( [ pileToCheck[ i ], pileToCheck[ j ], pileToCheck[ k ] ] );
+					}
+				}
+			}
+		}
+
+		return combinations;
+	}
+
+	getBest3ofAKind()
+	{
+
+	}
+
+	private removeFromArray( array : any[], element : any )
+	{
+		for( let i = 0; i < array.length; i++ )
+		{
+			if ( array[ i ] === element )
+				array.splice(i, 1);
+		}
+	}
 }

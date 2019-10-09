@@ -27,9 +27,9 @@ let line = game.makeTheLine();
 let cards =
 [
 	new Card( Color.CUBS, Face.QUEEN ),
-	new Card( Color.HEART, 3 ),
-	new Card( Color.HEART, Face.QUEEN ),
-	new Card( Color.CUBS, 10 ),
+	new Card( Color.HEART, 5 ),
+	new Card( Color.HEART, Face.AS ),
+	new Card( Color.CUBS, 5 ),
 	new Card( Color.SPADES, Face.AS ),
 
 	new Card( Color.DIAMOND, Face.AS ),
@@ -37,10 +37,9 @@ let cards =
 ]
 let watcher = new Watcher( cards );
 
-console.log('\ncards', cards);
-console.log('\nbest pairs', watcher.getBestPair() );
-console.log('\nall pairs', watcher.getAllPairs() );
-console.log('\nhigh card', watcher.getHighCard() );
+console.table( cards );
+
+console.log('\nall 3\n', watcher.getAll3ofAKind() );
 
 ////////////////////////////////////////////////////////////
 
