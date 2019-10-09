@@ -26,11 +26,11 @@ let line = game.makeTheLine();
 // printStats();
 let cards =
 [
-	new Card( Color.CUBS, Face.QUEEN ),
-	new Card( Color.HEART, 9 ),
+	new Card( Color.DIAMOND, Face.QUEEN ),
+	new Card( Color.DIAMOND, 9 ),
 	new Card( Color.DIAMOND, 8 ),
-	new Card( Color.CUBS, 10 ),
-	new Card( Color.SPADES, Face.KING ),
+	new Card( Color.DIAMOND, 10 ),
+	new Card( Color.DIAMOND, Face.KING ),
 
 	new Card( Color.DIAMOND, Face.AS ),
 	new Card( Color.DIAMOND, Face.JACK ),

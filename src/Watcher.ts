@@ -127,15 +127,7 @@ export class Watcher
 		const CARDS_NEEDED_IN_A_ROW = 5;
 		const straight : Card[] = [];
 
-		let sortedCards = this.cards.sort( ( a, b ) =>
-		{
-			if ( <number>a.value < <number>b.value )
-				return -1;
-			if ( <number>a.value > <number>b.value )
-				return 1;
-
-			return 0;
-		});
+		let sortedCards = this.sortCardsByValue( this.cards );
 		let sortedValues = Array.from( sortedCards, card => card.value );
 
 		for( let i = 0; i < ( sortedCards.length - 1 ); i++ )
@@ -202,27 +194,35 @@ export class Watcher
 			if( counters[ suit ] > largestQtty )
 			{
 				let allOfThem = this.cards.filter( card => card.color === suit );
-				flush = allOfThem;
+				flush = this.sortCardsByValue( allOfThem );
 				largestQtty = counters[ suit ];
 			}
 		})
 
 		// Checking and resizing to 5 elements
-		/*if( straight.length >= CARDS_NEEDED_IN_A_ROW )
+		if( flush.length === CARDS_NEEDED_IN_A_ROW )
+			return flush;
+		else if( flush.length > CARDS_NEEDED_IN_A_ROW )
 		{
-			if( straight.length === CARDS_NEEDED_IN_A_ROW )
-				return straight;
-			else
-			{
-				while( straight.length !== CARDS_NEEDED_IN_A_ROW )
-					straight.shift();
+			while( flush.length !== CARDS_NEEDED_IN_A_ROW )
+				flush.shift();
 
-				return straight;
-			}
+			return flush;
 		}
 		else
-			return [];*/
+			return [];
+	}
 
-		return flush;
+	private sortCardsByValue( cards : Card[] )
+	{
+		return cards.sort( ( a, b ) =>
+		{
+			if ( <number>a.value < <number>b.value )
+				return -1;
+			if ( <number>a.value > <number>b.value )
+				return 1;
+
+			return 0;
+		});
 	}
 }
