@@ -16,28 +16,30 @@ export class Watcher
 
 	bestCombination()
 	{
-		this.cards.forEach( card =>
-		{
-
-		});
+		//TODO
 	}
 
-	private bestPaire()
+	// TODO make private
+	bestPaire() : Card[]
 	{
 		let pileToCheck = this.cards;
-		let bestPairValue : number;
-		let bestPair = [];
+		let bestPairValue = 0;
+		let bestPair : Card[] = [];
 
 		pileToCheck.forEach( iMChecking =>
 		{
-			/*let element = this.cards.find( card => card.id === iMChecking );
+			let element = this.cards.find( card => card.value === iMChecking.value );
 
 			if( element )
 			{
-				if(bes)
-				bestPair = [ iMChecking, element ]
-
-			}*/
+				if( element.value && ( element.value > bestPairValue ) )
+				{
+					bestPairValue = element.value;
+					bestPair = [ iMChecking, element ]
+				}
+			}
 		});
+
+		return bestPair;
 	}
 }

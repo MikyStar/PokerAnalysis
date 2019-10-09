@@ -1,7 +1,8 @@
 import { Game } from './Game';
 import { Player } from './Player';
 import { TimeStamp, Calculator } from './Calculator'
-import { Card, Face } from './Card';
+import { Card, Face, Color } from './Card';
+import { Watcher } from './Watcher';
 
 ////////////////////////////////////////////////////////////
 
@@ -14,7 +15,7 @@ const START_LITTLE_BLIND = 5;
 let players = createPlayers( NUMBER_OF_PLAYERS );
 
 let game = new Game( players, START_LITTLE_BLIND );
-let timestamps = [ TimeStamp.NONE, TimeStamp.FLOP, TimeStamp.TURN, TimeStamp.REVERSE ]
+let timestamps = [ TimeStamp.NONE, TimeStamp.FLOP, TimeStamp.TURN, TimeStamp.RIVER ]
 let line = game.makeTheLine();
 
 ////////////////////////////////////////////////////////////
@@ -24,8 +25,19 @@ printPlayersHands();
 printLine();
 printStats();
 
-let card = new Card( undefined, Face.QUEEN );
-console.log('as', card.value );
+let watcher = new Watcher(
+[
+	new Card( Color.CUBS, Face.JACK ),
+	new Card( Color.HEART, 3 ),
+	new Card( Color.HEART, 6 ),
+	new Card( Color.CUBS, 10 ),
+	new Card( Color.SPADES, Face.JACK ),
+
+	new Card( Color.DIAMOND, Face.QUEEN ),
+	new Card( Color.DIAMOND, 5 ),
+]);
+
+console.log('best paire', watcher.bestPaire() );
 
 ////////////////////////////////////////////////////////////
 

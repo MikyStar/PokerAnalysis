@@ -13,7 +13,7 @@ export class Deck
 	private generateCards() : Card[]
 	{
 		let cards : Card[] = [];
-		let colors : Color[] = [ Color.CUBS, Color.DIAMOND, Color.HEART, Color.SPIKE ];
+		let colors : Color[] = [ Color.CUBS, Color.DIAMOND, Color.HEART, Color.SPADES ];
 		let faces : Face[] = [ Face.JACK, Face.QUEEN, Face.KING, Face.AS ];
 
 		for( let color = 0; color < colors.length; color++ )

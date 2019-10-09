@@ -24,7 +24,7 @@ export class Calculator
 			case TimeStamp.TURN :
 					this.line = [ line[ 0 ], line[ 1 ], line[ 2 ], line[ 4 ] ];
 				break;
-			case TimeStamp.REVERSE :
+			case TimeStamp.RIVER :
 					this.line = line;
 				break;
 		}
@@ -51,5 +51,5 @@ export enum TimeStamp
 	NONE = 'none',
 	FLOP = 'flop',
 	TURN = 'turn',
-	REVERSE = 'reverse'
+	RIVER = 'river'
 }

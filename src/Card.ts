@@ -42,7 +42,7 @@ export enum Color
 	CUBS = 'cubs',
 	DIAMOND = 'diamond',
 	HEART = 'heart',
-	SPIKE = 'spike'
+	SPADES = 'spades'
 }
 
 ////////////////////////////////////////////////////////////////////
