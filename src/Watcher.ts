@@ -126,7 +126,6 @@ export class Watcher
 	 */
 	getStraight() : Card[] | undefined
 	{
-		const CARDS_NEEDED_IN_A_ROW = 5;
 		const straight : Card[] = [];
 
 		let sortedCards = this.sortCardsByValue( this.cards );
@@ -146,7 +145,6 @@ export class Watcher
 			}
 		}
 
-		// Checking and resizing to 5 elements
 		return this.keepTheFiveBestFromValue( straight );
 	}
 
@@ -172,7 +170,6 @@ export class Watcher
 
 	getFlush() : Card[] | undefined
 	{
-		const CARDS_NEEDED_IN_A_ROW = 5;
 		let flush : Card[] = [];
 		let largestQtty = 0;
 
@@ -188,8 +185,19 @@ export class Watcher
 			}
 		})
 
-		// Checking and resizing to 5 elements
 		return this.keepTheFiveBestFromValue( flush );
+	}
+
+	getFullHouse() : Card[] | undefined
+	{
+		const CARDS_NEEDED_IN_A_ROW = 5;
+
+		let full = [ ...this.getBest3ofAKind(), ...this.getBestPair() ];
+
+		if( full.length === CARDS_NEEDED_IN_A_ROW )
+			return full;
+		else
+			[];
 	}
 
 	/////////////////////////////////////////////////////////////////////////////////////

@@ -27,21 +27,19 @@ let line = game.makeTheLine();
 let cards =
 [
 	new Card( Color.DIAMOND, Face.QUEEN ),
-	new Card( Color.SPADES, 9 ),
-	new Card( Color.SPADES, 5 ),
+	new Card( Color.SPADES, Face.QUEEN ),
+	new Card( Color.SPADES, 2 ),
 	new Card( Color.SPADES, 2 ),
 	new Card( Color.SPADES, Face.KING ),
 
-	new Card( Color.SPADES, 10 ),
-	new Card( Color.DIAMOND, Face.JACK ),
+	new Card( Color.SPADES, 2 ),
+	new Card( Color.DIAMOND, 2 ),
 ]
 let watcher = new Watcher( cards );
 
 console.table( cards );
 
-console.log('\n flush \n', watcher.getFlush() );
-console.log('\n\n straight', watcher.getStraight() );
-
+console.log('\n\n fullhouse', watcher.getFullHouse() );
 
 ////////////////////////////////////////////////////////////
 
