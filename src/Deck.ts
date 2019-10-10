@@ -1,4 +1,4 @@
-import { Card, Color, Face } from './Card';
+import { Card, Suit, Face } from './Card';
 
 export class Deck
 {
@@ -13,16 +13,16 @@ export class Deck
 	private generateCards() : Card[]
 	{
 		let cards : Card[] = [];
-		let colors : Color[] = [ Color.CUBS, Color.DIAMOND, Color.HEART, Color.SPADES ];
+		let suits : Suit[] = [ Suit.CUBS, Suit.DIAMOND, Suit.HEART, Suit.SPADES ];
 		let faces : Face[] = [ Face.JACK, Face.QUEEN, Face.KING, Face.AS ];
 
-		for( let color = 0; color < colors.length; color++ )
+		for( let suit = 0; suit < suits.length; suit++ )
 		{
 			for( let cardNumber = 2; cardNumber <= 10; cardNumber++ )
-				cards.push( new Card( colors[ color ], cardNumber ) );
+				cards.push( new Card( suits[ suit ], cardNumber ) );
 
 			for( let face = 0; face < faces.length; face++ )
-				cards.push( new Card( colors[ color ], faces[ face ] ) );
+				cards.push( new Card( suits[ suit ], faces[ face ] ) );
 		}
 
 		return cards;

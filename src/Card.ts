@@ -1,12 +1,12 @@
 export class Card
 {
-	color ?: Color;
+	suit ?: Suit;
 	id ?: number | Face;
 	value ?: number;
 
-	constructor( color ?: Color, id ?: number | Face )
+	constructor( suit ?: Suit, id ?: number | Face )
 	{
-		this.color = color;
+		this.suit = suit;
 		this.id = id;
 
 		if( this.id ) this.setValue();
@@ -37,7 +37,7 @@ export class Card
 
 ////////////////////////////////////////////////////////////////////
 
-export enum Color
+export enum Suit
 {
 	CUBS = 'cubs',
 	DIAMOND = 'diamond',

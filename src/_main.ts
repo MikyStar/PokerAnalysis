@@ -1,7 +1,7 @@
 import { Game } from './Game';
 import { Player } from './Player';
 import { TimeStamp, Calculator } from './Calculator'
-import { Card, Face, Color } from './Card';
+import { Card, Face, Suit } from './Card';
 import { Watcher } from './Watcher';
 
 ////////////////////////////////////////////////////////////
@@ -26,14 +26,14 @@ let line = game.makeTheLine();
 // printStats();
 let cards =
 [
-	new Card( Color.DIAMOND, Face.QUEEN ),
-	new Card( Color.SPADES, Face.QUEEN ),
-	new Card( Color.SPADES, 2 ),
-	new Card( Color.SPADES, 2 ),
-	new Card( Color.SPADES, Face.KING ),
+	new Card( Suit.DIAMOND, Face.QUEEN ),
+	new Card( Suit.SPADES, Face.QUEEN ),
+	new Card( Suit.SPADES, 2 ),
+	new Card( Suit.SPADES, 2 ),
+	new Card( Suit.SPADES, Face.KING ),
 
-	new Card( Color.SPADES, 2 ),
-	new Card( Color.DIAMOND, 2 ),
+	new Card( Suit.SPADES, 2 ),
+	new Card( Suit.DIAMOND, 2 ),
 ]
 let watcher = new Watcher( cards );
 

@@ -1,4 +1,4 @@
-import { Card, Color } from './Card';
+import { Card, Suit } from './Card';
 
 /////////////////////////////////////////////////////////////////////////////////////
 
@@ -158,11 +158,11 @@ export class Watcher
 		this.cards.forEach( card =>
 		{
 			if( counters === {} )
-				counters = { [ <string>card.color ] : 1 };
-			else if( counters.hasOwnProperty( `${ <Color>card.color }` ) )
-				counters[ `${ <Color>card.color }` ]++;
+				counters = { [ <string>card.suit ] : 1 };
+			else if( counters.hasOwnProperty( `${ <Suit>card.suit }` ) )
+				counters[ `${ <Suit>card.suit }` ]++;
 			else
-				counters[ `${ <Color>card.color }` ] = 1;
+				counters[ `${ <Suit>card.suit }` ] = 1;
 		});
 
 		return counters;
@@ -179,7 +179,7 @@ export class Watcher
 		{
 			if( counters[ suit ] > largestQtty )
 			{
-				let allOfThem = this.cards.filter( card => card.color === suit );
+				let allOfThem = this.cards.filter( card => card.suit === suit );
 				flush = this.sortCardsByValue( allOfThem );
 				largestQtty = counters[ suit ];
 			}
