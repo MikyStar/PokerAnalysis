@@ -45,9 +45,12 @@ export class Watcher
 		return highCard;
 	}
 
+	/**
+	 * @returns retrieve all pairs, sorted by decreasing value
+	 */
 	getAllPairs() : Card[][]
 	{
-		let pileToCheck = this.cards;
+		let pileToCheck =  this.sortCardsByValue( this.cards );
 		let pairs = [];
 
 		for( let i = 0; i < ( pileToCheck.length - 1 ); i++ )
@@ -200,13 +203,20 @@ export class Watcher
 		const CARDS_NEEDED_IN_A_ROW = 5;
 
 		let three = this.getBest3ofAKind();
-		let pairs = this.getAllPairs();
+		let pairs = this.getAllPairs().reverse() // To have the best ones first;
+		let thePair : Card[] = [];
 
-		//TODO gérer si la meilleure paire empiète sur le brelan
-		//if( three[ 0 ].value === )
-		console.log('pairs', pairs);
+		searchBestPairOtherThanThoseFromThree :
+		for( let i = 0; i < pairs.length; i++ )
+		{
+			if( pairs[ i ][ 0 ].value !== three[ 0 ].value )
+			{
+				thePair = pairs[ i ];
+				break searchBestPairOtherThanThoseFromThree;
+			}
+		}
 
-		let full = [ ...this.getBest3ofAKind(), ...this.getBestPair() ];
+		let full = [ ...three, ...thePair ];
 
 		if( full.length === CARDS_NEEDED_IN_A_ROW )
 			return full;
@@ -216,6 +226,9 @@ export class Watcher
 
 	/////////////////////////////////////////////////////////////////////////////////////
 
+	/**
+	 * @param cards - In increasing order
+	 */
 	private sortCardsByValue( cards : Card[] )
 	{
 		return cards.sort( ( a, b ) =>

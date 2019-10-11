@@ -26,14 +26,14 @@ let line = game.makeTheLine();
 // printStats();
 let cards =
 [
+	new Card( Suit.DIAMOND, Face.KING ),
+	new Card( Suit.HEART, Face.KING ),
 	new Card( Suit.DIAMOND, Face.QUEEN ),
-	new Card( Suit.SPADES, Face.QUEEN ),
-	new Card( Suit.SPADES, 5 ),
-	new Card( Suit.SPADES, 2 ),
+	new Card( Suit.DIAMOND, 2 ),
 	new Card( Suit.SPADES, Face.KING ),
 
-	new Card( Suit.SPADES, 8 ),
-	new Card( Suit.HEART, Face.QUEEN ),
+	new Card( Suit.SPADES, 2 ),
+	new Card( Suit.HEART, Face.JACK ),
 ]
 let watcher = new Watcher( cards );
 
