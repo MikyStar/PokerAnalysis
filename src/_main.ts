@@ -28,7 +28,7 @@ let cards =
 [
 	new Card( Suit.DIAMOND, Face.QUEEN ),
 	new Card( Suit.SPADES, Face.QUEEN ),
-	new Card( Suit.SPADES, 2 ),
+	new Card( Suit.SPADES, 5 ),
 	new Card( Suit.SPADES, 2 ),
 	new Card( Suit.SPADES, Face.KING ),
 

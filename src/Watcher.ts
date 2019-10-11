@@ -203,6 +203,8 @@ export class Watcher
 		let pairs = this.getAllPairs();
 
 		//TODO gérer si la meilleure paire empiète sur le brelan
+		//if( three[ 0 ].value === )
+		console.log('pairs', pairs);
 
 		let full = [ ...this.getBest3ofAKind(), ...this.getBestPair() ];
 
@@ -252,8 +254,9 @@ export class Watcher
 	private checkEveryCardIsDifferent( cards : Card[] ) : boolean
 	{
 		for( let i = 0; i < cards.length; i++ )
-			for( let j = 1; j < cards.length; j++)
-				if( cards[ i ] === cards[ j ] )
+			for( let j = 0; j < cards.length; j++)
+				if( ( i !== j )
+					&& ( ( cards[ i ].suit === cards[ j ].suit ) && ( cards[ i ].value === cards[ j ].value ) ) )
 					return false;
 
 		return true;
