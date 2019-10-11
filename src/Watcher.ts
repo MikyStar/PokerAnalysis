@@ -1,4 +1,5 @@
 import { Card, Suit } from './Card';
+import * as Logger from './Logger';
 
 /////////////////////////////////////////////////////////////////////////////////////
 
@@ -11,7 +12,13 @@ export class Watcher
 
 	constructor( cards : Card[] )
 	{
-		this.cards = cards;
+		if( this.checkEveryCardIsDifferent( cards ) )
+			this.cards = cards;
+		else
+		{
+			this.cards = [];
+			Logger.error( "Cards provided are not all differents" );
+		}
 	}
 
 	/////////////////////////////////////////////////////////////////////////////////////
@@ -192,6 +199,11 @@ export class Watcher
 	{
 		const CARDS_NEEDED_IN_A_ROW = 5;
 
+		let three = this.getBest3ofAKind();
+		let pairs = this.getAllPairs();
+
+		//TODO gérer si la meilleure paire empiète sur le brelan
+
 		let full = [ ...this.getBest3ofAKind(), ...this.getBestPair() ];
 
 		if( full.length === CARDS_NEEDED_IN_A_ROW )
@@ -216,9 +228,7 @@ export class Watcher
 	}
 
 	/**
-	 * Sort cards in increasing order and returns only the 5 highest ones (based on their value)
-	 *
-	 * @param cards
+	 * @description Sort cards in increasing order and returns only the 5 highest ones (based on their value)
 	 */
 	private keepTheFiveBestFromValue( cards : Card[] ) : Card[] | undefined
 	{
@@ -237,5 +247,15 @@ export class Watcher
 		}
 		else
 			return [];
+	}
+
+	private checkEveryCardIsDifferent( cards : Card[] ) : boolean
+	{
+		for( let i = 0; i < cards.length; i++ )
+			for( let j = 1; j < cards.length; j++)
+				if( cards[ i ] === cards[ j ] )
+					return false;
+
+		return true;
 	}
 }

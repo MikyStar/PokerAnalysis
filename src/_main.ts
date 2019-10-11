@@ -32,8 +32,8 @@ let cards =
 	new Card( Suit.SPADES, 2 ),
 	new Card( Suit.SPADES, Face.KING ),
 
-	new Card( Suit.SPADES, 2 ),
-	new Card( Suit.DIAMOND, 2 ),
+	new Card( Suit.SPADES, 8 ),
+	new Card( Suit.HEART, Face.QUEEN ),
 ]
 let watcher = new Watcher( cards );
 
