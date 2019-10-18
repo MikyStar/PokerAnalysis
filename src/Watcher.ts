@@ -133,6 +133,7 @@ export class Watcher
 
 	/**
 	 * @summary It sort the cards by their value and check if 5 cards in a row follows each others
+	 * TODO handle straight from As to 5
 	 */
 	getStraight() : Card[] | undefined
 	{

@@ -53,7 +53,7 @@ describe( 'Watcher', () =>
 		expect( calculated ).eql( bestPair );
 	})
 
-	it( '3 of a kind', () =>
+	it( 'Three of a kind', () =>
 	{
 		let watcher = new Watcher(
 		[
@@ -72,5 +72,33 @@ describe( 'Watcher', () =>
 		let calculated = watcher.getBest3ofAKind();
 
 		expect( calculated ).eql( realThree );
+	})
+
+	it( 'Straight', () =>
+	{
+		let watcher = new Watcher(
+		[
+			new Card( Suit.DIAMOND, 6 ),
+			new Card( Suit.HEART, 5 ),
+			new Card( Suit.DIAMOND, 3 ),
+			new Card( Suit.CUBS, Face.QUEEN ),
+			new Card( Suit.SPADES, 5 ),
+
+			new Card( Suit.CUBS, 2 ),
+			new Card( Suit.CUBS, 4 ),
+		]);
+
+		let realStraight =
+		[
+			new Card( Suit.CUBS, 2 ),
+			new Card( Suit.DIAMOND, 3 ),
+			new Card( Suit.CUBS, 4 ),
+			new Card( Suit.HEART, 5 ),
+			new Card( Suit.DIAMOND, 6 )
+		];
+
+		let calculated = watcher.getStraight();
+
+		expect( calculated ).eql( realStraight );
 	})
 })
