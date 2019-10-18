@@ -39,7 +39,7 @@ let watcher = new Watcher( cards );
 
 console.table( cards );
 
-console.log('\n\n fullhouse', watcher.getFullHouse() );
+console.log('\n\n pairs', watcher.getAllPairs() );
 
 ////////////////////////////////////////////////////////////
 

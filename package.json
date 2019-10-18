@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "tsc-watch --onSuccess \"node ./dist/_main.js\"",
+    "dev": "tsc-watch --onSuccess \"node ./dist/src/_main.js\"",
     "test": "mocha -r ts-node/register tests/**/*.test.ts"
   },
   "keywords": [],
