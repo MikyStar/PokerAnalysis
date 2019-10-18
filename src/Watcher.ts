@@ -202,6 +202,9 @@ export class Watcher
 		return this.keepTheFiveBestFromValue( flush );
 	}
 
+	/**
+	 * @returns The flush cards in increasing order
+	 */
 	getFullHouse() : Card[] | undefined
 	{
 		const CARDS_NEEDED_IN_A_ROW = 5;

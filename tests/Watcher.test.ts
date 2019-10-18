@@ -128,5 +128,33 @@ describe( 'Watcher', () =>
 		let calculatedFlush = watcher.getFlush();
 
 		expect( calculatedFlush ).eql( realFlush );
+	});
+
+	it( 'Full house', () =>
+	{
+		let watcher = new Watcher(
+		[
+			new Card( Suit.CUBS, Face.KING ),
+			new Card( Suit.DIAMOND, Face.KING ),
+			new Card( Suit.CUBS, 3 ),
+			new Card( Suit.DIAMOND, Face.QUEEN ),
+			new Card( Suit.DIAMOND, 10 ),
+
+			new Card( Suit.HEART, 3 ),
+			new Card( Suit.SPADES, 3 ),
+		]);
+
+		let realFullHouse =
+		[
+			new Card( Suit.CUBS, 3 ),
+			new Card( Suit.HEART, 3 ),
+			new Card( Suit.SPADES, 3 ),
+			new Card( Suit.CUBS, Face.KING ),
+			new Card( Suit.DIAMOND, Face.KING ),
+		];
+
+		let calculatedFlush = watcher.getFullHouse();
+
+		expect( calculatedFlush ).eql( realFullHouse );
 	})
 })
