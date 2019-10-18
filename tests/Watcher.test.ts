@@ -5,7 +5,7 @@ import { Card, Face, Suit } from '../src/Card';
 
 describe( 'Watcher', () =>
 {
-	it( 'Check pairs', () =>
+	it( 'Pairs', () =>
 	{
 		let watcher = new Watcher(
 		[
@@ -100,5 +100,33 @@ describe( 'Watcher', () =>
 		let calculated = watcher.getStraight();
 
 		expect( calculated ).eql( realStraight );
+	});
+
+	it( 'Flush', () =>
+	{
+		let watcher = new Watcher(
+		[
+			new Card( Suit.CUBS, Face.KING ),
+			new Card( Suit.DIAMOND, 5 ),
+			new Card( Suit.DIAMOND, 8 ),
+			new Card( Suit.DIAMOND, Face.QUEEN ),
+			new Card( Suit.DIAMOND, 10 ),
+
+			new Card( Suit.CUBS, Face.AS ),
+			new Card( Suit.DIAMOND, 3 ),
+		]);
+
+		let realFlush =
+		[
+			new Card( Suit.DIAMOND, 3 ),
+			new Card( Suit.DIAMOND, 5 ),
+			new Card( Suit.DIAMOND, 8 ),
+			new Card( Suit.DIAMOND, 10 ),
+			new Card( Suit.DIAMOND, Face.QUEEN ),
+		];
+
+		let calculatedFlush = watcher.getFlush();
+
+		expect( calculatedFlush ).eql( realFlush );
 	})
 })

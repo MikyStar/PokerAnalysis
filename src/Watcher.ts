@@ -179,6 +179,9 @@ export class Watcher
 		return counters;
 	}
 
+	/**
+	 * @returns The flush cards in increasing order
+	 */
 	getFlush() : Card[] | undefined
 	{
 		let flush : Card[] = [];
