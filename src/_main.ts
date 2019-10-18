@@ -39,7 +39,7 @@ let watcher = new Watcher( cards );
 
 console.table( cards );
 
-console.log('\n\n 3 of a kind', watcher.getBest3ofAKind() );
+console.log('\n\n 4 of a kind', watcher.getBest4ofAKind() );
 
 ////////////////////////////////////////////////////////////
 

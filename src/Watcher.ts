@@ -160,26 +160,6 @@ export class Watcher
 	}
 
 	/**
-	 * @returns An object where the key is the suit and the value is the quantity
-	 */
-	getNbOfEachSuit()
-	{
-		let counters : any = {};
-
-		this.cards.forEach( card =>
-		{
-			if( counters === {} )
-				counters = { [ <string>card.suit ] : 1 };
-			else if( counters.hasOwnProperty( `${ <Suit>card.suit }` ) )
-				counters[ `${ <Suit>card.suit }` ]++;
-			else
-				counters[ `${ <Suit>card.suit }` ] = 1;
-		});
-
-		return counters;
-	}
-
-	/**
 	 * @returns The flush cards in increasing order
 	 */
 	getFlush() : Card[] | undefined
@@ -231,6 +211,22 @@ export class Watcher
 			[];
 	}
 
+	getBest4ofAKind() : Card[][] | undefined
+	{
+		let cards =
+		[
+			new Card( Suit.CUBS, 3 ),
+			new Card( Suit.HEART, 3 ),
+			new Card( Suit.SPADES, 3 ),
+			new Card( Suit.CUBS, 7 ),
+			new Card( Suit.DIAMOND, 9 ),
+		];
+
+		console.log('nbeach', this.getNbOfEachValue( cards ) );
+
+		return undefined;
+	}
+
 	/////////////////////////////////////////////////////////////////////////////////////
 
 	/**
@@ -280,5 +276,42 @@ export class Watcher
 					return false;
 
 		return true;
+	}
+
+	/**
+	 * @returns An object where the key is the suit and the value is the quantity
+	 */
+	private getNbOfEachSuit()
+	{
+		let counters : any = {};
+
+		this.cards.forEach( card =>
+		{
+			if( counters === {} )
+				counters = { [ <string>card.suit ] : 1 };
+			else if( counters.hasOwnProperty( `${ <Suit>card.suit }` ) )
+				counters[ `${ <Suit>card.suit }` ]++;
+			else
+				counters[ `${ <Suit>card.suit }` ] = 1;
+		});
+
+		return counters;
+	}
+
+	private getNbOfEachValue( cards : Card[] )
+	{
+		let counters : any = {};
+
+		cards.forEach( card =>
+		{
+			if( Object.keys( counters ).length === 0 )
+				counters = { [ <number>card.value ] : 1 };
+			else if( counters.hasOwnProperty( `${ card.value }` ) )
+				counters[ `${ card.value }` ]++;
+			else
+				counters[ `${ card.value }` ] = 1;
+		});
+
+		return counters;
 	}
 }
