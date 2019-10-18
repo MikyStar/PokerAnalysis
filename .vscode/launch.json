@@ -7,10 +7,26 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Launch Program",
+      "name": "Debug TS",
       "program": "${workspaceFolder}/src/_main.ts",
       "preLaunchTask": "tsc: build - tsconfig.json",
       "outFiles": ["${workspaceFolder}/dist/**/*.js"]
-    }
+	},
+	{
+		"type": "node",
+		"request": "launch",
+		"name": "Mocha Current File",
+		"program": "${workspaceFolder}/node_modules/mocha/bin/_mocha",
+		"args": [
+		  "--no-timeouts",
+		  "--colors",
+		  "${file}",
+		  "--require",
+		  "ts-node/register"
+		],
+		"console": "integratedTerminal",
+		"sourceMaps": true,
+		"internalConsoleOptions": "neverOpen"
+  }
   ]
 }
