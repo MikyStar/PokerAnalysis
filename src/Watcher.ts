@@ -133,6 +133,7 @@ export class Watcher
 
 	/**
 	 * @summary It sort the cards by their value and check if 5 cards in a row follows each others
+	 * TODO handle straight from As to 5
 	 */
 	getStraight() : Card[] | undefined
 	{
@@ -178,6 +179,9 @@ export class Watcher
 		return counters;
 	}
 
+	/**
+	 * @returns The flush cards in increasing order
+	 */
 	getFlush() : Card[] | undefined
 	{
 		let flush : Card[] = [];
@@ -198,6 +202,9 @@ export class Watcher
 		return this.keepTheFiveBestFromValue( flush );
 	}
 
+	/**
+	 * @returns The flush cards in increasing order
+	 */
 	getFullHouse() : Card[] | undefined
 	{
 		const CARDS_NEEDED_IN_A_ROW = 5;
