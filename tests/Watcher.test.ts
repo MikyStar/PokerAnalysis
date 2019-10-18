@@ -31,4 +31,25 @@ describe( 'Watcher', () =>
 
 		expect( realPairs ).eql( calculatedPairs ); // eql enables deep equality checking for arrays
 	})
+
+	it( 'Best pair', () =>
+	{
+		let watcher = new Watcher(
+		[
+			new Card( Suit.DIAMOND, Face.KING ),
+			new Card( Suit.HEART, Face.AS ),
+			new Card( Suit.DIAMOND, Face.QUEEN ),
+			new Card( Suit.CUBS, Face.QUEEN ),
+			new Card( Suit.SPADES, Face.JACK ),
+
+			new Card( Suit.SPADES, 2 ),
+			new Card( Suit.CUBS, Face.AS ),
+		]);
+
+		let bestPair = [ new Card( Suit.HEART, Face.AS ), new Card( Suit.CUBS, Face.AS ) ]
+
+		let calculated = watcher.getBestPair();
+
+		expect( calculated ).eql( bestPair );
+	})
 })
