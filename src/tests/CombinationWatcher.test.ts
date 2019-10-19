@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 
-import { CombinationWatcher } from '../src/CombinationWatcher';
-import { Card, Face, Suit } from '../src/Card';
+import { CombinationWatcher } from '../model/CombinationWatcher';
+import { Card, Face, Suit } from '../model/Card';
 
 describe( 'Watcher', () =>
 {

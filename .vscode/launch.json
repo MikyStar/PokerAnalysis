@@ -3,30 +3,13 @@
 	// Pointez pour afficher la description des attributs existants.
 	// Pour plus d'informations, visitez : https://go.microsoft.com/fwlink/?linkid=830387
 	"version": "0.2.0",
-  "configurations": [
-    {
-      "type": "node",
-      "request": "launch",
-      "name": "Debug TS",
-      "program": "${workspaceFolder}/src/_main.ts",
-      "preLaunchTask": "tsc: build - tsconfig.json",
-      "outFiles": ["${workspaceFolder}/dist/**/*.js"]
-	},
-	{
-		"type": "node",
-		"request": "launch",
-		"name": "Mocha Current File",
-		"program": "${workspaceFolder}/node_modules/mocha/bin/_mocha",
-		"args": [
-		  "--no-timeouts",
-		  "--colors",
-		  "${file}",
-		  "--require",
-		  "ts-node/register"
-		],
-		"console": "integratedTerminal",
-		"sourceMaps": true,
-		"internalConsoleOptions": "neverOpen"
-  }
-  ]
+	"configurations": [
+		{
+			"type": "chrome",
+			"request": "launch",
+			"name": "Launch Chrome against localhost",
+			"url": "http://localhost:8080",
+			"webRoot": "${workspaceFolder}"
+		}
+	]
 }
