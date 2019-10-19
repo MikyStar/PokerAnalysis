@@ -1,14 +1,13 @@
 {
-  "name": "new",
+  "name": "poker-analysis",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A simple TS program to help you get the best odds ;)",
   "scripts": {
     "dev": "tsc-watch --onSuccess \"node ./dist/src/_main.js\"",
     "test": "mocha -r ts-node/register tests/**/*.test.ts"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [ "poker", "cards", "maths", "typescript", "mocha" ],
+  "author": "Mike AUBENAS",
   "license": "ISC",
   "dependencies": {
     "@types/node": "^12.7.12",
