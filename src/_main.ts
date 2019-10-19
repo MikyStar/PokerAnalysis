@@ -33,7 +33,7 @@ let cards =
 	new Card( Suit.SPADES, Face.KING ),
 
 	new Card( Suit.SPADES, 2 ),
-	new Card( Suit.HEART, Face.JACK ),
+	new Card( Suit.CUBS, Face.KING ),
 ]
 let watcher = new Watcher( cards );
 

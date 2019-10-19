@@ -211,20 +211,33 @@ export class Watcher
 			[];
 	}
 
-	getBest4ofAKind() : Card[][] | undefined
+	getBest4ofAKind() : Card[] | undefined
 	{
-		let cards =
-		[
-			new Card( Suit.CUBS, 3 ),
-			new Card( Suit.HEART, 3 ),
-			new Card( Suit.SPADES, 3 ),
-			new Card( Suit.CUBS, 7 ),
-			new Card( Suit.DIAMOND, 9 ),
-		];
+		let effectives = this.getNbOfEachValue( this.cards );
+		let fourOfAKind : Card[] = [];
+		let biggestValue : number = 0;
 
-		console.log('nbeach', this.getNbOfEachValue( cards ) );
+		console.log('eff', effectives );
 
-		return undefined;
+		Object.keys( effectives ).forEach( value =>
+		{
+			console.log('bla', value );
+
+			if( ( effectives[ value ] === 4 ) && ( biggestValue < ( value as unknown as number  ) ) )
+				biggestValue = Number( value );
+		});
+
+		if( biggestValue !== 0 )
+		{
+			this.sortCardsByValue( this.cards ).forEach( card =>
+			{
+				if( card.value === biggestValue )
+					fourOfAKind.push( card );
+			})
+
+		}
+
+		return fourOfAKind;
 	}
 
 	/////////////////////////////////////////////////////////////////////////////////////
