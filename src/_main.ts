@@ -26,20 +26,19 @@ let line = game.makeTheLine();
 // printStats();
 let cards =
 [
-	new Card( Suit.DIAMOND, 3 ),
-	new Card( Suit.HEART, Face.KING ),
-	new Card( Suit.DIAMOND, 6 ),
+	new Card( Suit.CUBS, Face.AS ),
+	new Card( Suit.CUBS, 6 ),
+	new Card( Suit.HEART, 2 ),
+	new Card( Suit.CUBS, Face.KING),
 	new Card( Suit.DIAMOND, 2 ),
-	new Card( Suit.DIAMOND, 5 ),
-
-	new Card( Suit.DIAMOND, 4 ),
-	new Card( Suit.CUBS, Face.KING ),
+	new Card( Suit.SPADES, Face.AS ),
+	new Card( Suit.HEART, Face.KING ),
 ]
 let watcher = new Watcher( cards );
 
 console.table( cards );
 
-console.log('\n\n straight flush', watcher.getStraightFlush() );
+console.log('\n\n double', watcher.getBestDoublePair() );
 
 ////////////////////////////////////////////////////////////
 

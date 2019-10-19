@@ -87,6 +87,49 @@ export class Watcher
 		return bestPair;
 	}
 
+	/**
+	 * @returns An array of pairs of cards sorted in increasing order by their value
+	 */
+	getBestDoublePair() : Card[][] | undefined
+	{
+		let doublePair : Card[][] = [];
+		let bestValue = 0;
+		let secondBestValue = 0;
+
+		let effectives = this.getNbOfEachValue( this.cards );
+		console.log('eff', effectives );
+
+		Object.keys( effectives ).forEach( id =>
+		{
+			if( effectives[ id ] === 2 )
+			{
+				if( bestValue < Number( id ) )
+				{
+					secondBestValue = bestValue;
+					bestValue = Number( id )
+				}
+				else if( secondBestValue < Number( id ) )
+					secondBestValue = Number( id )
+			}
+		})
+
+		if( bestValue && secondBestValue )
+		{
+			this.getAllPairs().forEach( pair =>
+			{
+				if( pair[ 0 ].value === bestValue )
+					doublePair = [ ...doublePair, pair ]; // Array destructuring this way to sort them
+
+				if( pair[ 0 ].value === secondBestValue )
+					doublePair = [ pair, ...doublePair ]; // Array destructuring this way to sort them
+			});
+
+			return doublePair;
+		}
+		else
+			return []
+	}
+
 	getAll3ofAKind() : Card[][] | undefined
 	{
 		let pileToCheck = this.cards;
@@ -323,6 +366,9 @@ export class Watcher
 		return counters;
 	}
 
+	/**
+	 * @returns An object where value is key and number is value. Sorted increasingly
+	 */
 	private getNbOfEachValue( cards : Card[] )
 	{
 		let counters : any = {};

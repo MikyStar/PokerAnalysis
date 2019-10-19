@@ -76,6 +76,11 @@ describe( 'Watcher', () =>
 		expect( calculated ).eql( bestPair );
 	})
 
+	it( 'Best double pair', () =>
+	{
+		//TODO
+	})
+
 	it( 'Three of a kind', () =>
 	{
 		let watcher = new Watcher(
