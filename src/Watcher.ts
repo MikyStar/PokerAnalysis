@@ -188,7 +188,7 @@ export class Watcher
 			&& ( sortedValues[ 2 ] === 4 ) && ( sortedValues[ 3 ] === 5 ) && ( sortedValues[ 6 ] === 14 );
 
 		if( isThereTheWheel )
-			return [ sortedCards[ 0 ], sortedCards[ 1 ], sortedCards[ 2 ], sortedCards[ 3 ], sortedCards[ 6 ] ];
+			return [ sortedCards[ 6 ], sortedCards[ 0 ], sortedCards[ 1 ], sortedCards[ 2 ], sortedCards[ 3 ] ];
 
 		for( let i = 0; i < ( sortedCards.length - 1 ); i++ )
 		{

@@ -150,6 +150,33 @@ describe( 'Watcher', () =>
 		expect( calculated ).eql( realStraight );
 	});
 
+	it( 'The Wheel', () =>
+	{
+		let watcher = new Watcher(
+		[
+			new Card( Suit.CUBS, Face.AS ),
+			new Card( Suit.CUBS, 3 ),
+			new Card( Suit.HEART, 2 ),
+			new Card( Suit.CUBS, Face.KING),
+			new Card( Suit.DIAMOND, 5 ),
+			new Card( Suit.SPADES, 4 ),
+			new Card( Suit.HEART, Face.KING ),
+		]);
+
+		let realStraight =
+		[
+			new Card( Suit.CUBS, Face.AS ),
+			new Card( Suit.HEART, 2 ),
+			new Card( Suit.CUBS, 3 ),
+			new Card( Suit.SPADES, 4 ),
+			new Card( Suit.DIAMOND, 5 ),
+		];
+
+		let calculated = watcher.getStraight();
+
+		expect( calculated ).eql( realStraight );
+	})
+
 	it( 'Flush', () =>
 	{
 		let watcher = new Watcher(
