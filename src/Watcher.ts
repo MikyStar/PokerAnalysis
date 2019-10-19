@@ -1,5 +1,5 @@
 import { Card, Suit } from './Card';
-import * as Logger from './Logger';
+import * as Logger from './utils/Logger';
 
 /////////////////////////////////////////////////////////////////////////////////////
 
@@ -183,6 +183,12 @@ export class Watcher
 
 		let sortedCards = this.sortCardsByValue( this.cards );
 		let sortedValues = Array.from( sortedCards, card => card.value );
+
+		let isThereTheWheel = ( sortedValues[ 0 ] === 2 ) && ( sortedValues[ 1 ] === 3 )
+			&& ( sortedValues[ 2 ] === 4 ) && ( sortedValues[ 3 ] === 5 ) && ( sortedValues[ 6 ] === 14 );
+
+		if( isThereTheWheel )
+			return [ sortedCards[ 0 ], sortedCards[ 1 ], sortedCards[ 2 ], sortedCards[ 3 ], sortedCards[ 6 ] ];
 
 		for( let i = 0; i < ( sortedCards.length - 1 ); i++ )
 		{

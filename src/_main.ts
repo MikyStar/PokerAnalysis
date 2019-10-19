@@ -27,18 +27,18 @@ let line = game.makeTheLine();
 let cards =
 [
 	new Card( Suit.CUBS, Face.AS ),
-	new Card( Suit.CUBS, 6 ),
+	new Card( Suit.CUBS, 3 ),
 	new Card( Suit.HEART, 2 ),
 	new Card( Suit.CUBS, Face.KING),
-	new Card( Suit.DIAMOND, 2 ),
-	new Card( Suit.SPADES, Face.AS ),
+	new Card( Suit.DIAMOND, 5 ),
+	new Card( Suit.SPADES, 4 ),
 	new Card( Suit.HEART, Face.KING ),
 ]
 let watcher = new Watcher( cards );
 
 console.table( cards );
 
-console.log('\n\n double', watcher.getBestDoublePair() );
+console.log('\n\n straight', watcher.getStraight() );
 
 ////////////////////////////////////////////////////////////
 
