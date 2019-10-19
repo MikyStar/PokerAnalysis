@@ -5,6 +5,29 @@ import { Card, Face, Suit } from '../src/Card';
 
 describe( 'Watcher', () =>
 {
+	it( 'High card', () =>
+	{
+		let watcher = new Watcher(
+		[
+			new Card( Suit.DIAMOND, Face.KING ),
+			new Card( Suit.HEART, 10 ),
+			new Card( Suit.DIAMOND, 3 ),
+			new Card( Suit.DIAMOND, 2 ),
+			new Card( Suit.SPADES, Face.AS ),
+
+			new Card( Suit.SPADES, 2 ),
+			new Card( Suit.HEART, Face.JACK ),
+		]);
+
+		let realHighCard = new Card( Suit.SPADES, Face.AS );
+
+
+		let calculatedHighCard = watcher.getHighCard();
+
+		expect( realHighCard ).eql( calculatedHighCard );
+	});
+
+
 	it( 'Pairs', () =>
 	{
 		let watcher = new Watcher(
