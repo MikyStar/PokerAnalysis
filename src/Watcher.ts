@@ -97,7 +97,6 @@ export class Watcher
 		let secondBestValue = 0;
 
 		let effectives = this.getNbOfEachValue( this.cards );
-		console.log('eff', effectives );
 
 		Object.keys( effectives ).forEach( id =>
 		{
@@ -111,7 +110,7 @@ export class Watcher
 				else if( secondBestValue < Number( id ) )
 					secondBestValue = Number( id )
 			}
-		})
+		});
 
 		if( bestValue && secondBestValue )
 		{

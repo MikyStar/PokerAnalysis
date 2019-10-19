@@ -78,7 +78,27 @@ describe( 'Watcher', () =>
 
 	it( 'Best double pair', () =>
 	{
-		//TODO
+		let watcher = new Watcher(
+		[
+			new Card( Suit.CUBS, Face.AS ),
+			new Card( Suit.CUBS, 6 ),
+			new Card( Suit.HEART, 2 ),
+			new Card( Suit.CUBS, Face.KING),
+			new Card( Suit.DIAMOND, 2 ),
+
+			new Card( Suit.SPADES, Face.AS ),
+			new Card( Suit.HEART, Face.KING ),
+		]);
+
+		let realDoublePair =
+		[
+			[ new Card( Suit.CUBS, Face.KING), new Card( Suit.HEART, Face.KING ) ],
+			[ new Card( Suit.CUBS, Face.AS ), new Card( Suit.SPADES, Face.AS ) ]
+		];
+
+		let calculated = watcher.getBestDoublePair();
+
+		expect( calculated ).eql( realDoublePair );
 	})
 
 	it( 'Three of a kind', () =>
