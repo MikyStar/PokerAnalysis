@@ -1,13 +1,13 @@
 import { expect } from 'chai';
 
-import { Watcher } from '../src/Watcher';
+import { CombinationWatcher } from '../src/CombinationWatcher';
 import { Card, Face, Suit } from '../src/Card';
 
 describe( 'Watcher', () =>
 {
 	it( 'High card', () =>
 	{
-		let watcher = new Watcher(
+		let watcher = new CombinationWatcher(
 		[
 			new Card( Suit.DIAMOND, Face.KING ),
 			new Card( Suit.HEART, 10 ),
@@ -30,7 +30,7 @@ describe( 'Watcher', () =>
 
 	it( 'Pairs', () =>
 	{
-		let watcher = new Watcher(
+		let watcher = new CombinationWatcher(
 		[
 			new Card( Suit.DIAMOND, Face.KING ),
 			new Card( Suit.HEART, Face.KING ),
@@ -57,7 +57,7 @@ describe( 'Watcher', () =>
 
 	it( 'Best pair', () =>
 	{
-		let watcher = new Watcher(
+		let watcher = new CombinationWatcher(
 		[
 			new Card( Suit.DIAMOND, Face.KING ),
 			new Card( Suit.HEART, Face.AS ),
@@ -78,7 +78,7 @@ describe( 'Watcher', () =>
 
 	it( 'Best double pair', () =>
 	{
-		let watcher = new Watcher(
+		let watcher = new CombinationWatcher(
 		[
 			new Card( Suit.CUBS, Face.AS ),
 			new Card( Suit.CUBS, 6 ),
@@ -103,7 +103,7 @@ describe( 'Watcher', () =>
 
 	it( 'Three of a kind', () =>
 	{
-		let watcher = new Watcher(
+		let watcher = new CombinationWatcher(
 		[
 			new Card( Suit.DIAMOND, Face.KING ),
 			new Card( Suit.HEART, 5 ),
@@ -124,7 +124,7 @@ describe( 'Watcher', () =>
 
 	it( 'Straight', () =>
 	{
-		let watcher = new Watcher(
+		let watcher = new CombinationWatcher(
 		[
 			new Card( Suit.DIAMOND, 6 ),
 			new Card( Suit.HEART, 5 ),
@@ -152,7 +152,7 @@ describe( 'Watcher', () =>
 
 	it( 'The Wheel', () =>
 	{
-		let watcher = new Watcher(
+		let watcher = new CombinationWatcher(
 		[
 			new Card( Suit.CUBS, Face.AS ),
 			new Card( Suit.CUBS, 3 ),
@@ -175,11 +175,11 @@ describe( 'Watcher', () =>
 		let calculated = watcher.getStraight();
 
 		expect( calculated ).eql( realStraight );
-	})
+	});
 
 	it( 'Flush', () =>
 	{
-		let watcher = new Watcher(
+		let watcher = new CombinationWatcher(
 		[
 			new Card( Suit.CUBS, Face.KING ),
 			new Card( Suit.DIAMOND, 5 ),
@@ -207,7 +207,7 @@ describe( 'Watcher', () =>
 
 	it( 'Full house', () =>
 	{
-		let watcher = new Watcher(
+		let watcher = new CombinationWatcher(
 		[
 			new Card( Suit.CUBS, Face.KING ),
 			new Card( Suit.DIAMOND, Face.KING ),
@@ -235,7 +235,7 @@ describe( 'Watcher', () =>
 
 	it( 'Four of a kind', () =>
 	{
-		let watcher = new Watcher(
+		let watcher = new CombinationWatcher(
 		[
 			new Card( Suit.DIAMOND, Face.KING ),
 			new Card( Suit.HEART, Face.KING ),
@@ -262,7 +262,7 @@ describe( 'Watcher', () =>
 
 	it( 'Straight flush', () =>
 	{
-		let watcher = new Watcher(
+		let watcher = new CombinationWatcher(
 		[
 			new Card( Suit.DIAMOND, 3 ),
 			new Card( Suit.HEART, Face.KING ),

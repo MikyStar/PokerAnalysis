@@ -2,7 +2,7 @@ import { Game } from './Game';
 import { Player } from './Player';
 import { TimeStamp, Calculator } from './Calculator'
 import { Card, Face, Suit } from './Card';
-import { Watcher } from './Watcher';
+import { CombinationWatcher } from './CombinationWatcher';
 
 ////////////////////////////////////////////////////////////
 
@@ -15,7 +15,7 @@ const START_LITTLE_BLIND = 5;
 let players = createPlayers( NUMBER_OF_PLAYERS );
 
 let game = new Game( players, START_LITTLE_BLIND );
-let timestamps = [ TimeStamp.NONE, TimeStamp.FLOP, TimeStamp.TURN, TimeStamp.RIVER ]
+let timestamps = [ TimeStamp.PRE_FLOP, TimeStamp.FLOP, TimeStamp.TURN, TimeStamp.RIVER ]
 let line = game.makeTheLine();
 
 ////////////////////////////////////////////////////////////
@@ -34,7 +34,7 @@ let cards =
 	new Card( Suit.SPADES, 4 ),
 	new Card( Suit.HEART, Face.KING ),
 ]
-let watcher = new Watcher( cards );
+let watcher = new CombinationWatcher( cards );
 
 console.table( cards );
 

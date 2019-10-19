@@ -6,7 +6,7 @@ import * as Logger from './utils/Logger';
 /**
  * @description A Watcher takes max seven cards and provides functions to find the best combinations
  */
-export class Watcher
+export class CombinationWatcher
 {
 	cards : Card[];
 
@@ -175,7 +175,6 @@ export class Watcher
 
 	/**
 	 * @summary It sort the cards by their value and check if 5 cards in a row follows each others
-	 * TODO handle straight from As to 5
 	 */
 	getStraight() : Card[] | undefined
 	{

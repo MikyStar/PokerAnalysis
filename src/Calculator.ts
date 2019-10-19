@@ -15,7 +15,7 @@ export class Calculator
 
 		switch( timestamp )
 		{
-			case TimeStamp.NONE :
+			case TimeStamp.PRE_FLOP :
 					this.line = [];
 				break;
 			case TimeStamp.FLOP :
@@ -48,7 +48,7 @@ export class Calculator
 
 export enum TimeStamp
 {
-	NONE = 'none',
+	PRE_FLOP = 'pre-flop',
 	FLOP = 'flop',
 	TURN = 'turn',
 	RIVER = 'river'
