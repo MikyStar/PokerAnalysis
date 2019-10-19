@@ -183,5 +183,33 @@ describe( 'Watcher', () =>
 		let calculatedFlush = watcher.getBest4ofAKind();
 
 		expect( calculatedFlush ).eql( real4ofA );
-	})
+	});
+
+	it( 'Straight flush', () =>
+	{
+		let watcher = new Watcher(
+		[
+			new Card( Suit.DIAMOND, 3 ),
+			new Card( Suit.HEART, Face.KING ),
+			new Card( Suit.DIAMOND, 6 ),
+			new Card( Suit.DIAMOND, 2 ),
+			new Card( Suit.DIAMOND, 5 ),
+
+			new Card( Suit.DIAMOND, 4 ),
+			new Card( Suit.CUBS, Face.KING ),
+		]);
+
+		let straightFlush =
+		[
+			new Card( Suit.DIAMOND, 2 ),
+			new Card( Suit.DIAMOND, 3 ),
+			new Card( Suit.DIAMOND, 4 ),
+			new Card( Suit.DIAMOND, 5 ),
+			new Card( Suit.DIAMOND, 6 ),
+		];
+
+		let calculatedFlush = watcher.getStraightFlush();
+
+		expect( calculatedFlush ).eql( straightFlush );
+	});
 })
