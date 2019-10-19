@@ -156,5 +156,32 @@ describe( 'Watcher', () =>
 		let calculatedFlush = watcher.getFullHouse();
 
 		expect( calculatedFlush ).eql( realFullHouse );
+	});
+
+	it( 'Four of a kind', () =>
+	{
+		let watcher = new Watcher(
+		[
+			new Card( Suit.DIAMOND, Face.KING ),
+			new Card( Suit.HEART, Face.KING ),
+			new Card( Suit.DIAMOND, Face.QUEEN ),
+			new Card( Suit.DIAMOND, 2 ),
+			new Card( Suit.SPADES, Face.KING ),
+
+			new Card( Suit.SPADES, 2 ),
+			new Card( Suit.CUBS, Face.KING ),
+		]);
+
+		let real4ofA =
+		[
+			new Card( Suit.DIAMOND, Face.KING ),
+			new Card( Suit.HEART, Face.KING ),
+			new Card( Suit.SPADES, Face.KING ),
+			new Card( Suit.CUBS, Face.KING ),
+		];
+
+		let calculatedFlush = watcher.getBest4ofAKind();
+
+		expect( calculatedFlush ).eql( real4ofA );
 	})
 })

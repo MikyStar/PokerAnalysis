@@ -217,12 +217,8 @@ export class Watcher
 		let fourOfAKind : Card[] = [];
 		let biggestValue : number = 0;
 
-		console.log('eff', effectives );
-
 		Object.keys( effectives ).forEach( value =>
 		{
-			console.log('bla', value );
-
 			if( ( effectives[ value ] === 4 ) && ( biggestValue < ( value as unknown as number  ) ) )
 				biggestValue = Number( value );
 		});
@@ -234,7 +230,6 @@ export class Watcher
 				if( card.value === biggestValue )
 					fourOfAKind.push( card );
 			})
-
 		}
 
 		return fourOfAKind;
