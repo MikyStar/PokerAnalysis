@@ -235,6 +235,23 @@ export class Watcher
 		return fourOfAKind;
 	}
 
+	getStraightFlush() : Card[] | undefined
+	{
+		let straight = this.getStraight();
+		let flush = this.getFlush();
+
+		if( straight && flush )
+		{
+			for( let i = 0; i < straight.length; i++ )
+				if( ( straight[ i ].suit !== flush[ i ].suit ) || ( straight[ i ].value !== flush[ i ].value ) )
+					return []
+
+			return [ ...straight ];
+		}
+		else
+			return []
+	}
+
 	/////////////////////////////////////////////////////////////////////////////////////
 
 	/**

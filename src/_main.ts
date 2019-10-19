@@ -26,20 +26,20 @@ let line = game.makeTheLine();
 // printStats();
 let cards =
 [
-	new Card( Suit.DIAMOND, Face.KING ),
+	new Card( Suit.DIAMOND, 3 ),
 	new Card( Suit.HEART, Face.KING ),
-	new Card( Suit.DIAMOND, Face.QUEEN ),
+	new Card( Suit.DIAMOND, 6 ),
 	new Card( Suit.DIAMOND, 2 ),
-	new Card( Suit.SPADES, Face.KING ),
+	new Card( Suit.DIAMOND, 5 ),
 
-	new Card( Suit.SPADES, 2 ),
+	new Card( Suit.DIAMOND, 4 ),
 	new Card( Suit.CUBS, Face.KING ),
 ]
 let watcher = new Watcher( cards );
 
 console.table( cards );
 
-console.log('\n\n 4 of a kind', watcher.getBest4ofAKind() );
+console.log('\n\n straight flush', watcher.getStraightFlush() );
 
 ////////////////////////////////////////////////////////////
 
