@@ -1,0 +1,13 @@
+.container-userhole
+{
+	display : inline-flex;
+	background-color: #1c313a;
+	word-spacing: 10px;
+	border : 2px solid black;
+	border-radius: 10px;
+}
+
+.container-userhole  *
+{
+	margin : 10px;
+}
