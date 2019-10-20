@@ -5,6 +5,8 @@ import { Card } from './Card';
 import { TimeStamp } from '../model/Game';
 import * as Logger from '../model/utils/Logger';
 
+import '../style/FrontLine.css'
+
 /////////////////////////////////////////////////////////////////
 
 interface FrontLineProps
@@ -47,7 +49,12 @@ export const FrontLine = ( { cards, timeStamp } : FrontLineProps ) =>
 					cards.pop();
 			})();
 
-			cards.forEach( card => jsx.push( <Card suit={ card.suit as Suit } id={ card.id as ( number | Face ) } /> ) );
+			cards.forEach( ( card, index ) => jsx.push( <Card
+															key={ index }
+															suit={ card.suit as Suit }
+															id={ card.id as ( number | Face ) }
+														/> )
+			);
 		}
 		else
 			Logger.error( 'You must provide 5 cards for the front line.' );
@@ -58,7 +65,7 @@ export const FrontLine = ( { cards, timeStamp } : FrontLineProps ) =>
 	/////////////////////////////////////////////////////////////////
 
 	return	(
-				<div>
+				<div className='container'>
 					{ printLine() }
 				</div>
 			);

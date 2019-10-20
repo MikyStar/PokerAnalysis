@@ -13,3 +13,4 @@ rules :
     curly : [ true, "as-needed" ]
     arrow-parens : false
     align : false
+    trailing-comma : false

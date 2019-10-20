@@ -1,0 +1,11 @@
+.container
+{
+	display : flex;
+	background-color: #32363A;
+	word-spacing: 10px;
+}
+
+.container  *
+{
+	margin : 10px 5px 10px 5px;
+}
