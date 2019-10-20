@@ -2,6 +2,9 @@ import React from 'react';
 import './App.css';
 import { Card } from './components/Card';
 import { Suit, Face } from './model/Card';
+import { FrontLine } from './components/FrontLine';
+import { Card as CardModel } from './model/Card';
+import { TimeStamp } from './model/Game';
 
 ////////////////////////////////////////////////////////////////////
 
@@ -10,15 +13,17 @@ const App : React.FC = () =>
 	return 	(
 				<div>
 
-					<Card
-						id={ Face.KING }
-						suit={ Suit.CUBS }
+					<FrontLine
+						cards= 	{[
+									new CardModel( Suit.CUBS, 5 ),
+									new CardModel( Suit.HEART, 5 ),
+									new CardModel( Suit.DIAMOND, Face.JACK ),
+									new CardModel( Suit.DIAMOND, Face.AS ),
+									new CardModel( Suit.DIAMOND, 10 ),
+								]}
+						timeStamp={ TimeStamp.FLOP }
 					/>
 
-					<Card
-						id={ 10 }
-						suit={ Suit.HEART }
-					/>
 				</div>
 			);
 }

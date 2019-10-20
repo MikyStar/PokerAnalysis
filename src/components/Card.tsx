@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Suit, Face } from '../model/Card'
-import './Card.css'
+import '../style/Card.css'
 import cubs from '../assets/cubs.png';
 import spades from '../assets/spades.png';
 import heart from '../assets/heart.png';

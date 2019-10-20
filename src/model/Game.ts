@@ -65,3 +65,13 @@ export class Game
 		return line;
 	}
 }
+
+////////////////////////////////////////////////////////////////////////////
+
+export enum TimeStamp
+{
+	PRE_FLOP = 'pre-flop',
+	FLOP = 'flop',
+	TURN = 'turn',
+	RIVER = 'river'
+}

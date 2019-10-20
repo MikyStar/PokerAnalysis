@@ -8,5 +8,4 @@ import chalk from 'chalk';
 export const error = ( message : string ) =>
 {
 	console.error(`\n ${ chalk.red( message )} \n`);
-	process.exit(0);
 }
