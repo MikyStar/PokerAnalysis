@@ -1,0 +1,9 @@
+.container-cards
+{
+	display : inline-flex;
+}
+
+.container-cards  *
+{
+	margin : 10px;
+}
