@@ -12,8 +12,8 @@
 {
 	margin: 0;
 	position: absolute;
-	top: 8%;
-	left: 20%;
+	top: 5%;
+	left: 10%;
 	font-size: 50px;
 }
 
@@ -21,6 +21,15 @@
 {
 	margin: 0;
 	position: absolute;
-	top: 40%;
-	left: 30%;
+	top: 55%;
+	left: 43%;
+}
+
+.unknown
+{
+	margin: 0;
+	position: absolute;
+	top : 25%;
+	left : 35%;
+	font-size : 80px;
 }

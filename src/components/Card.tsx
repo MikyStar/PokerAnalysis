@@ -11,8 +11,8 @@ import diamond from '../assets/diamond.png';
 
 interface CardProps
 {
-	suit : Suit,
-	id : number | Face
+	suit ?: Suit,
+	id ?: number | Face
 }
 
 ///////////////////////////////////////////////////
@@ -20,8 +20,12 @@ interface CardProps
 export const Card = ( { suit, id} : CardProps ) =>
 (
 	<div className='card'>
-		<h3 className='id'>{ handleID( id ) }</h3>
-		<img className='suit' src={ getIcon( suit ) } alt={ suit as string } width={ 80 } height={ 80 } />
+		<h3 className='id'>{ id ? handleID( id ) : '' }</h3>
+		{
+			suit ?
+				( <img className='suit' src={ getIcon( suit ) } alt={ suit as string } width={ 80 } height={ 80 } /> )
+				: ( <p className='unknown'>?</p> )
+		}
 	</div>
 )
 
