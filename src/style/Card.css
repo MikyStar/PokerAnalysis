@@ -1,6 +1,6 @@
 .card
 {
-	width: 180px;
+	width: 160px;
 	height: 300px;
 	border-radius: 10px;
 	background-color: #37474f;
@@ -22,7 +22,7 @@
 	margin: 0;
 	position: absolute;
 	top: 55%;
-	left: 43%;
+	left: 37%;
 }
 
 .unknown
