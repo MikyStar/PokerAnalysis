@@ -19,7 +19,7 @@ type CardProps =
 
 export const Card = ( { suit, id} : CardProps ) =>
 (
-	<div>
+	<div className='card'>
 		<h3 className='id'>{ handleID( id ) }</h3>
 		<img className='suit' src={ getIcon( suit ) } width={ 80 } height={ 80 } />
 	</div>
