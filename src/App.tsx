@@ -1,10 +1,12 @@
 import React from 'react';
-import './App.css';
+
 import { Card } from './components/Card';
 import { Suit, Face } from './model/Card';
 import { FrontLine } from './components/FrontLine';
 import { Card as CardModel } from './model/Card';
 import { TimeStamp } from './model/Game';
+
+import './style/App.css';
 
 ////////////////////////////////////////////////////////////////////
 
