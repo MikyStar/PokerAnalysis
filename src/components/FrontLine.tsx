@@ -21,7 +21,7 @@ export const FrontLine = ( { cards, timeStamp } : FrontLineProps ) =>
 {
 	const printLine = () =>
 	{
-		let jsx : JSX.Element[] = [];
+		const jsx : JSX.Element[] = [];
 
 		if( cards.length === 5 )
 		{

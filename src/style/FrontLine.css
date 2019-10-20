@@ -1,11 +1,13 @@
 .container
 {
-	display : flex;
+	display : inline-flex;
 	background-color: #32363A;
 	word-spacing: 10px;
+	border : 2px solid black;
+	border-radius: 10px;
 }
 
 .container  *
 {
-	margin : 10px 5px 10px 5px;
+	margin : 10px;
 }
