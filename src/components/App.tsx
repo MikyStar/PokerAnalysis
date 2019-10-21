@@ -27,6 +27,10 @@ export const App : React.FC = () =>
 									]}
 						timeStamp={ TimeStamp.FLOP }
 					/>
+
+					<hr />
+
+
 				</>
 			);
 }

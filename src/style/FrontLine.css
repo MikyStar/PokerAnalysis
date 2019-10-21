@@ -1,7 +1,7 @@
 .container
 {
 	display : inline-flex;
-	background-color: #32363A;
+	background-color: #282c34;
 	word-spacing: 10px;
 	border : 5px solid black;
 	border-radius: 10px;

@@ -23,7 +23,7 @@ export const FrontLine = ( { cards, timeStamp } : FrontLineProps ) =>
 	{
 		const jsx : JSX.Element[] = [];
 
-		if( cards.length === 5 )
+		if( cards.length === 5 ) // TODO instead enable max 5 cards and if less replace with blank cards
 		{
 			let cardsThatWontBeRevieled = 0;
 
